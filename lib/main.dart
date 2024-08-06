@@ -7,14 +7,14 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 void main() async {
-  const keyApplicationId = '8IeZk4RB9pmgUn9qtpt46Sn8ERu7395EtqpSEnS2';
-  const keyClientKey = 'OzxoRGDQ1qXfr4j4d4o7q83IKN07tXITJHV7TV2S';
+  // const keyApplicationId = '8IeZk4RB9pmgUn9qtpt46Sn8ERu7395EtqpSEnS2';
+  // const keyClientKey = 'OzxoRGDQ1qXfr4j4d4o7q83IKN07tXITJHV7TV2S';
 
   //-----------------------------aslah---------------------------------
-  //  const keyApplicationId = 'x9lflGkpyK2i9jWoHxU4VWQhCKYYlpTvZoNbiPo7';
-  // const keyClientKey = 'WUuCLxOZsylk5VbI2Ky6t5wSpPny6MHHWzhLJpOy';
+   const keyApplicationId = 'x9lflGkpyK2i9jWoHxU4VWQhCKYYlpTvZoNbiPo7';
+  const keyClientKey = 'WUuCLxOZsylk5VbI2Ky6t5wSpPny6MHHWzhLJpOy';
   //-----------------------------aslah---------------------------------
-  
+
   const keyParseServerUrl = 'https://parseapi.back4app.com';
   await Parse().initialize(keyApplicationId, keyParseServerUrl, clientKey: keyClientKey, debug: true);
   const String apiKey = 'AIzaSyANH2im6noAKtHhHRsPZmQdKrHzICkOtAI';

@@ -14,17 +14,20 @@ class TodayScreen extends StatelessWidget {
           appBar: AppBar(
             title: Text('today'),
           ),
-          body: Center(
-            child: Column(
-              children: [
-                // if (model.dailyData[0].url != null)
-                //   Image.network(
-                //     model.dailyData[0].url!,
-                //   )
-                // else
-                //   const Icon(Icons.image_not_supported_sharp),
-                // Text(model.dailyData[0].value!),
-              ],
+          body: SingleChildScrollView(
+            child: Center(
+              child: model.loading
+                  ? CircularProgressIndicator()
+                  : Column(
+                      children: List.generate(
+                      model.dailyData.length,
+                      (index) {
+                        return ListTile(
+                          leading: Text(model.dailyData[index].objectId),
+                          title: Text(model.dailyData[index].journal),
+                        );
+                      },
+                    )),
             ),
           ),
           floatingActionButton: SizedBox(

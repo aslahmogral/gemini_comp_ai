@@ -1,4 +1,4 @@
-class Journal {
+class JournalJsonModel {
     String className;
     String objectId;
     DateTime createdAt;
@@ -6,7 +6,7 @@ class Journal {
     DateTime date;
     String journal;
 
-    Journal({
+    JournalJsonModel({
         required this.className,
         required this.objectId,
         required this.createdAt,
@@ -15,12 +15,12 @@ class Journal {
         required this.journal,
     });
 
-    factory Journal.fromJson(Map<String, dynamic> json) => Journal(
+    factory JournalJsonModel.fromJson(Map<String, dynamic> json) => JournalJsonModel(
         className: json["className"],
         objectId: json["objectId"],
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
-        date: json["date"],
+        date: DateTime.parse(json["date"]['iso']),
         journal: json["journal"],
     );
 

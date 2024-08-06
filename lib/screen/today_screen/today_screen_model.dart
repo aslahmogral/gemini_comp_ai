@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:gemini_comp_ai/service/api-integration/post_create_user.dart';
+import 'package:gemini_comp_ai/json_model/journal_jsonmodel.dart';
+import 'package:gemini_comp_ai/service/api-integration/get_journal.dart';
 
 class TodayScreenModel with ChangeNotifier {
-  List<dynamic> dailyData = [];
+  bool loading = false;
+  List<JournalJsonModel> dailyData = [];
 
   TodayScreenModel() {
     getDailyData();
   }
 
   getDailyData() async {
-    dailyData = await getDaily();
-    print(dailyData);
+    loading = true;
+    final response = await getTodayJournal();
+    if (response.isSuccessful == true) {
+      for (JournalJsonModel data in response.data!) {
+        dailyData.add(data);
+      }
+    }
+    loading = false;
+    notifyListeners();
   }
 }
