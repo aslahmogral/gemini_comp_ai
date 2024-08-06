@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gemini_comp_ai/data_hub/data_hub.dart';
 import 'package:gemini_comp_ai/screen/today_screen/today_screen_model.dart';
 import 'package:provider/provider.dart';
 
@@ -18,13 +17,13 @@ class TodayScreen extends StatelessWidget {
           body: Center(
             child: Column(
               children: [
-                if (DataHub.dailyData[0].url != null)
-                  Image.network(
-                    // model.dailyData[0].url!,
-                  );
-                else
-                  const Icon(Icons.image_not_supported_sharp),
-                Text(DataHub.dailyData[0].value!),
+                // if (DataHub.dailyData[0].url != null)
+                //   Image.network(
+                //     model.dailyData[0].url!,
+                //   );
+                // else
+                //   const Icon(Icons.image_not_supported_sharp),
+                // Text(DataHub.dailyData[0].value!),
               ],
             ),
           ),

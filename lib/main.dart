@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:gemini_comp_ai/screen/chat_screen.dart/chat_screen.dart';
+import 'package:gemini_comp_ai/screen/authentication/create_account_screen.dart';
+import 'package:gemini_comp_ai/screen/authentication/login_account_screen.dart';
 import 'package:gemini_comp_ai/screen/home_screen/home_screen.dart';
+import 'package:gemini_comp_ai/screen/splash_screen/splash_screen.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 void main() async {
+  const keyApplicationId = '8IeZk4RB9pmgUn9qtpt46Sn8ERu7395EtqpSEnS2';
+  const keyClientKey = 'OzxoRGDQ1qXfr4j4d4o7q83IKN07tXITJHV7TV2S';
+  const keyParseServerUrl = 'https://parseapi.back4app.com';
+  await Parse().initialize(keyApplicationId, keyParseServerUrl, clientKey: keyClientKey, debug: true);
   const String apiKey = 'AIzaSyANH2im6noAKtHhHRsPZmQdKrHzICkOtAI';
   if (apiKey.isEmpty) {
     throw Exception('API key is not set. Please obtain one from Google AI Studio.');
@@ -31,8 +38,14 @@ class MyApp extends StatelessWidget {
         //   bodyText2: TextStyle(color: Colors.white),
         // ),
       ),
-      home: HomeScreen(model: model),
+      initialRoute: 'splash_screen',
+      routes: {
+        'splash_screen': (context) => SplashScreen(),
+        'home_screen': (context) => HomeScreen(model: model),
+        'login_screen': (context) => LoginAccountScreen(),
+        'create_account_screen': (context) => CreateAccountScreen(),
+      },
+      // home: HomeScreen(model: model),
     );
   }
 }
-

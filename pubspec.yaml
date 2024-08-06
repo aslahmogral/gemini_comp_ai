@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_generative_ai: ^0.4.3
   provider: ^6.1.2
+  parse_server_sdk: ^7.0.0
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
