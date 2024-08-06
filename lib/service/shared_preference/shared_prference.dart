@@ -6,3 +6,8 @@ Future<void> userLoginCredential({
   SharedPreferences userLoginCredential = await SharedPreferences.getInstance();
   userLoginCredential.setString('userId', userId);
 }
+
+Future<void> clearUserLoginCredential() async {
+  SharedPreferences userLoginCredential = await SharedPreferences.getInstance();
+  userLoginCredential.remove('userId');
+}

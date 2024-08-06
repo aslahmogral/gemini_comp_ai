@@ -10,20 +10,20 @@ class TodayScreen extends StatelessWidget {
     return ChangeNotifierProvider<TodayScreenModel>(
       create: (context) => TodayScreenModel(),
       child: Consumer<TodayScreenModel>(
-        builder: (context, data, model) => Scaffold(
+        builder: (context, model, child) => Scaffold(
           appBar: AppBar(
             title: Text('today'),
           ),
           body: Center(
             child: Column(
               children: [
-                // if (DataHub.dailyData[0].url != null)
+                // if (model.dailyData[0].url != null)
                 //   Image.network(
                 //     model.dailyData[0].url!,
-                //   );
+                //   )
                 // else
                 //   const Icon(Icons.image_not_supported_sharp),
-                // Text(DataHub.dailyData[0].value!),
+                // Text(model.dailyData[0].value!),
               ],
             ),
           ),

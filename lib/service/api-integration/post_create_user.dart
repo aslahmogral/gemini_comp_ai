@@ -32,3 +32,15 @@ Future<NetworkResponse<UserAccountJsonModel>> createUserAccount({
     return NetworkResponse(false, null, message: "something went wrong! Please try again in a minutes or two");
   }
 }
+
+Future<List<dynamic>> getDaily() async {
+  QueryBuilder<ParseObject> queryTodo = QueryBuilder<ParseObject>(ParseObject('daily'));
+  final ParseResponse apiResponse = await queryTodo.query();
+  if (apiResponse.success && apiResponse.results != null) {
+    print(apiResponse.results);
+    
+    return apiResponse.results as List<ParseObject>;
+  } else {
+    return [];
+  }
+}
