@@ -21,7 +21,7 @@ class _LoginAccountScreenState extends State<LoginAccountScreen> {
     if (response.isSuccessful == true) {
       userLoginCredential(userId: response.data!.objectId);
       Navigator.pushNamed(context, "home_screen");
-    }else{
+    } else {
       // show snak bar with error
     }
   }
@@ -30,6 +30,7 @@ class _LoginAccountScreenState extends State<LoginAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextFormField(
           controller: emailController,
@@ -49,7 +50,11 @@ class _LoginAccountScreenState extends State<LoginAccountScreen> {
             authUserResponse();
           },
           child: Text("Login"),
-        )
+        ),
+        SizedBox(height: 20),
+        TextButton(onPressed: () {
+          Navigator.pushNamed(context, "create_account_screen");
+        }, child: Text("You are a new User please create account"))
       ],
     ));
   }
