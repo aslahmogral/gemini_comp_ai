@@ -6,6 +6,8 @@ import 'package:gemini_comp_ai/screen/splash_screen/splash_screen.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
+
+GenerativeModel? generativeModel;
 void main() async {
   // const keyApplicationId = '8IeZk4RB9pmgUn9qtpt46Sn8ERu7395EtqpSEnS2';
   // const keyClientKey = 'OzxoRGDQ1qXfr4j4d4o7q83IKN07tXITJHV7TV2S';

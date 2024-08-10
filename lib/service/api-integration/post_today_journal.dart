@@ -1,30 +1,25 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:gemini_comp_ai/json_model/user_account_jsonmodel.dart';
 import 'package:gemini_comp_ai/service/network_response/network_response.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
-Future<NetworkResponse<UserAccountJsonModel>> createUserAccount({
-  required String userName,
-  required String password,
-  required String email,
-  required DateTime reminderDateTime,
-  required String reminderTime,
+Future<NetworkResponse<dynamic>> createTodayJournal({
+  required String userId,
+  required String contextThred,
+  required String journal,
 }) async {
   try {
-    ParseObject createAccountDetails = ParseObject('UserAccountTable')
-      ..set('userName', userName)
-      ..set('password', password)
-      ..set('reminderDateTime', reminderDateTime)
-      ..set('reminderTime', reminderTime)
-      ..set('email', email);
+    ParseObject createAccountDetails = ParseObject('TodaysJournalTable')
+      ..set('userId', userId)
+      ..set('contextThred', contextThred)
+      ..set('journal', journal);
 
     final response = await createAccountDetails.save();
 
     if (response.success) {
       dynamic jsonResponse = json.decode(response.result.toString());
-      UserAccountJsonModel responseData = UserAccountJsonModel.fromJson(jsonResponse);
-      return NetworkResponse(true, responseData, message: 'Account created successfully!');
+      // UserAccountJsonModel responseData = UserAccountJsonModel.fromJson(jsonResponse);
+      return NetworkResponse(true, jsonResponse, message: 'Successfully created todays journal');
     } else {
       return NetworkResponse(false, null, message: 'Invalid response received from server!');
     }

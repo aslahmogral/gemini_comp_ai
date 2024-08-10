@@ -31,7 +31,6 @@ class TodayScreen extends StatelessWidget {
             ),
           ),
           floatingActionButton: SizedBox(
-            // width: 200,
             child: FloatingActionButton.extended(
               onPressed: () {
                 // data.updateDailyData();
